@@ -73,6 +73,7 @@ export default function Projects() {
                 capita PPP for a given year in order to predict future trends. </p>
             </Content>
 
+            <br/>
             <Calculator/>
 
         </StyledMain>

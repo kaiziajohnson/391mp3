@@ -28,6 +28,17 @@ const Content = styled.div`
     }
 `;
 
+const Decoration = styled.div`
+    width: 50%;
+    margin: 1% auto;
+   padding: 2% 4% 2% 4%;
+    background-color: orchid;
+    border: 3px solid darkmagenta;
+    border-radius: 3%;
+
+
+`
+
 export default function Calculator(){
     const [one, setOne] = useState("");
     const [two, setTwo] = useState("");
@@ -62,7 +73,7 @@ export default function Calculator(){
         setOutput("Output");
     }
     return (
-        <div>
+        <Decoration>
             <br/>
             <SubTitle>Calculator</SubTitle>
 
@@ -79,7 +90,7 @@ export default function Calculator(){
             </div>
             <h2 style = {{color}} >{output}</h2>
             </Content>
-        </div>
+        </Decoration>
 
 
     )
