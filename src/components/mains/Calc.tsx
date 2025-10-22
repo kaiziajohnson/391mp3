@@ -1,9 +1,39 @@
 import {useState} from 'react';
+import {useSwitchColor} from "./hook.tsx";
+import styled from "styled-components";
+
+const SubTitle = styled.h2`
+    text-align: center;
+   padding-bottom: 1%;
+    font-weight: bold;
+    font-size: calc(2px + 2vw);
+    color: black;
+    
+    @media screen and (max-width: 1000px) {
+        
+        font-size: calc(2px + 3vw);
+        
+    }
+
+`;
+
+const Content = styled.div`
+    color: black;
+    text-align: center;
+    font-size: calc(3px + 1vw);
+    
+
+    @media screen and (max-width: 1000px) {
+        font-size: calc(2px + 2vw);
+    }
+`;
 
 export default function Calculator(){
     const [one, setOne] = useState("");
     const [two, setTwo] = useState("");
     const [output, setOutput] = useState("Output");
+
+    const color = useSwitchColor(output);
 
     function doAdd() {
         setOutput(String(Number(one) + Number(two)))
@@ -33,7 +63,10 @@ export default function Calculator(){
     }
     return (
         <div>
-            <h1>Calculator</h1>
+            <br/>
+            <SubTitle>Calculator</SubTitle>
+
+            <Content>
             <label> Give me a number: </label><input value={one} onChange={(e) => setOne(e.target.value)}/>
             <label> Give me a number: </label><input value={two} onChange={(e) => setTwo(e.target.value)}/>
             <div>
@@ -44,7 +77,8 @@ export default function Calculator(){
                 <button onClick={doClear}>Clear</button>
                 <button onClick={doPower}>Power</button>
             </div>
-            <h2 id="output">{output}</h2>
+            <h2 style = {{color}} >{output}</h2>
+            </Content>
         </div>
 
 

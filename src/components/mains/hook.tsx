@@ -1,19 +1,19 @@
 import {useState, useEffect} from "react";
 
-//hook checks result and returns color
+//hook changes answer color
 
-export function useSwitch(value: string) {
+export function useSwitchColor(output: string) {
     const [color, setColor] = useState("black");
 
     useEffect(() => {
-        if (value === null || value === undefined) {
+        if (output === null || output === "undefined") {
             setColor("black");
-        } else if (Number(value) < 0) {
+        } else if (Number(output) < 0) {
             setColor("red");
         } else {
             setColor("black");
         }
-    }, [value]);
+    }, [output]);
 
     return color;
 }
